@@ -30,17 +30,21 @@ Follow these steps to set up and run the project locally:
    ```bash
    git clone https://github.com/yourusername/tech-job-ad-authenticity-checker.git
    cd tech-job-ad-authenticity-checker
+   
+   ```
 
 ## Set Up a Virtual Environment (Optional but recommended)
 
-```python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate
 ```
+python -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate
 
-
+```
 ## Run the Application
 
-```streamlit run app.py
+```
+streamlit run app.py
+
 ```
 
 ## Usage
