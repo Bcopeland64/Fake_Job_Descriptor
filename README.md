@@ -25,7 +25,7 @@ Ensure you have Python installed on your system. You can download Python from [p
 
 Follow these steps to set up and run the project locally:
 
-1. **Clone the Repository**
+## Clone the Repository
 
    ```
    git clone https://github.com/yourusername/tech-job-ad-authenticity-checker.git
