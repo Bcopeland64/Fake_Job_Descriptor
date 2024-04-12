@@ -33,12 +33,15 @@ Follow these steps to set up and run the project locally:
 
 ## Set Up a Virtual Environment (Optional but recommended)
 
-python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+```python -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate
+```
+
 
 ## Run the Application
 
-streamlit run app.py
+```streamlit run app.py
+```
 
 ## Usage
 
@@ -47,3 +50,15 @@ Once the application is running:
 - Enter a tech job description into the text area.
 - Click the "Analyze" button to process the description.
 - View the results displayed below the button, which indicate whether the job ad is likely genuine or fake, along with detailed explanations.
+
+
+### Explanation
+This README provides a structured overview covering:
+- A brief description of the project and its features.
+- Detailed setup instructions, including how to install Python, set up a virtual environment, install dependencies, and run the application.
+- Guidelines on how users can utilize the app.
+- Encouragement for community contributions including how to report issues and submit pull requests.
+- License information to inform users of their rights regarding the use and distribution of the software.
+
+Ensure to replace placeholders like the GitHub repository link `https://github.com/yourusername/tech-job-ad-authenticity-checker.git` with the actual URL to your project repository. This approach helps to make your project open and welcoming to potential users and contributors.
+
