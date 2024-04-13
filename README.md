@@ -27,7 +27,7 @@ Follow these steps to set up and run the project locally:
 ## Clone the Repository
 
    ```
-   git clone https://github.com/yourusername/tech-job-ad-authenticity-checker.git
+   git clone https://github.com/Bcopeland64/tech-job-ad-authenticity-checker.git
    cd tech-job-ad-authenticity-checker
    
    ```
