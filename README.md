@@ -1,4 +1,3 @@
-# Fake_Job_Descriptor
 
 # Tech Job Ad Authenticity Checker
 
