@@ -42,7 +42,7 @@ source venv/bin/activate  # On Windows use `venv\Scripts\activate
 ## Run the Application
 
 ```
-streamlit run app.py
+streamlit run app.py (or whatever you name your app.py)
 
 ```
 
