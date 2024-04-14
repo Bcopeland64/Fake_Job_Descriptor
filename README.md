@@ -54,4 +54,9 @@ Once the application is running:
 - Click the "Analyze" button to process the description.
 - View the results displayed below the button, which indicate whether the job ad is likely genuine or fake, along with detailed explanations.
 
+## Screenshots
+
+![Screenshot from 2024-04-14 20-18-38](https://github.com/Bcopeland64/Fake_Job_Descriptor/assets/47774770/3a51a521-bb0b-47f6-93a1-76cf76763a5f)
+
+
 
