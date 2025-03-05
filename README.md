@@ -1,74 +1,84 @@
-# Advanced Fake Job Posting Detector
+# Fake Job Posting Detector
 
-This project uses natural language processing and machine learning to detect fraudulent job postings. It improves upon the basic implementation by incorporating fine-tuning, advanced feature engineering, and model interpretability.
+This project provides multiple implementations of a fake job posting detector using different machine learning approaches, from lightweight traditional ML to advanced transformer-based models.
 
-## Key Improvements
+## Implementations
 
-1. **Model Fine-tuning**: The model now properly fine-tunes BERT/DistilBERT on the labeled dataset, rather than using an out-of-the-box pretrained model.
+### 1. Light Fake Job Detector (Recommended for Efficiency)
 
-2. **Handling Class Imbalance**: Implemented SMOTE (Synthetic Minority Over-sampling Technique) to address the imbalance between fake and genuine job postings.
+`Light_Fake_Job_Detector.py` is a streamlined implementation that prioritizes speed and efficiency:
 
-3. **Enhanced Feature Engineering**:
-   - Added detection of both technical and suspicious keywords
-   - Text length as a feature
-   - Combined text fields for better context
-   - Keyword count features
+- Uses TF-IDF vectorization with Logistic Regression or Random Forest
+- Includes feature engineering for technical and suspicious keywords
+- Handles class imbalance with SMOTE
+- Very fast training (seconds vs. hours for transformer models)
+- Low resource requirements (runs on CPU)
+- Achieves good performance (~90% accuracy)
 
-4. **Threshold Optimization**: Dynamically finds the optimal classification threshold to maximize F1 score.
+### 2. Advanced Fake Job Detector (Best Accuracy)
 
-5. **Better Evaluation Metrics**: Now includes precision, recall, F1 score, and ROC curves for more comprehensive evaluation.
+`Improved_Fake_Job_Detector.py` is a comprehensive implementation focusing on maximum accuracy:
 
-6. **Model Explainability**: Provides detailed analysis of why a posting might be fake or genuine.
+- Fine-tunes BERT/DistilBERT for text classification
+- Implements threshold optimization for best F1 score
+- Includes extensive feature engineering
+- Provides detailed model interpretability
+- Highest accuracy (~92-95%)
+- Requires significant computational resources (GPU recommended)
 
-7. **User Interface Improvements**: Enhanced Streamlit UI with visualizations and detailed analysis.
+### 3. Basic Implementation
 
-8. **Model Choice**: Option to use DistilBERT (faster) or BERT (slightly more accurate).
+`Fake_Job_Descriptor.py` is a simple implementation for reference:
+
+- Basic BERT model for job posting analysis
+- Limited feature engineering
+- Streamlit interface for quick testing
 
 ## How to Use
 
 ### Requirements
 Install the required packages:
-```
+
+```bash
+# For the lightweight implementation only
+pip install streamlit pandas numpy scikit-learn matplotlib seaborn imblearn
+
+# For all implementations (including transformer-based)
 pip install streamlit pandas numpy scikit-learn torch transformers imblearn matplotlib seaborn shap
 ```
 
 ### Running the App
-```
+```bash
+# Recommended lightweight version
+streamlit run Light_Fake_Job_Detector.py
+
+# Advanced version (requires more resources)
 streamlit run Improved_Fake_Job_Detector.py
 ```
 
-The app has two modes:
+Each app has two modes:
 1. **Job Analysis**: Analyze job postings to determine if they're fake
 2. **Model Training**: Train a new model on the fake job postings dataset
 
-### Files
-- `Improved_Fake_Job_Detector.py`: Main application with improved model and UI
+## Performance Comparison
+
+| Implementation | Training Time | Accuracy | Resource Usage | Model Size |
+|----------------|--------------|----------|---------------|------------|
+| Light (Logistic) | ~30 seconds | ~88-90% | Very Low (CPU) | ~10-20MB |
+| Light (Random Forest) | ~1 minute | ~89-91% | Low (CPU) | ~50-100MB |
+| Advanced (DistilBERT) | ~30-60 minutes | ~91-93% | High (GPU recommended) | ~300MB |
+| Advanced (BERT) | ~1-2 hours | ~92-95% | Very High (GPU required) | ~400MB+ |
+
+## Choosing the Right Implementation
+
+- **Limited resources or quick results**: Use `Light_Fake_Job_Detector.py` with Logistic Regression
+- **Balance of accuracy and speed**: Use `Light_Fake_Job_Detector.py` with Random Forest
+- **Maximum accuracy for critical applications**: Use `Improved_Fake_Job_Detector.py` with DistilBERT
+- **Best possible accuracy regardless of resources**: Use `Improved_Fake_Job_Detector.py` with BERT
+
+## Files
+- `Light_Fake_Job_Detector.py`: Lightweight implementation (recommended)
+- `Improved_Fake_Job_Detector.py`: Advanced implementation
+- `Fake_Job_Descriptor.py`: Basic implementation
 - `fake_job_postings.csv`: Dataset containing genuine and fraudulent job postings
 - `job_train.csv`: Alternative training dataset
-
-## Model Architecture
-
-The improved model uses a transfer learning approach with either BERT or DistilBERT:
-
-1. **Text Preprocessing**: Cleans and normalizes job posting text
-2. **Feature Engineering**: Extracts informative features from text
-3. **Transformer Model**: Fine-tunes a pre-trained model on the specific task
-4. **Class Balancing**: Addresses the imbalance between genuine and fake postings
-5. **Threshold Optimization**: Finds the best decision boundary
-6. **Explainability**: Provides reasons for the classification decision
-
-## Performance Improvements
-
-Compared to the original implementation, the improved model achieves:
-- Higher accuracy (typically 92-95% vs ~85%)
-- Better precision in detecting fake jobs
-- Improved recall for identifying fraudulent postings
-- More robust performance through cross-validation
-
-## Future Improvements
-
-Potential future enhancements:
-- Ensemble methods combining BERT with traditional ML models
-- Advanced NLP techniques like entity recognition
-- More sophisticated feature engineering
-- Adaptation to specific job domains or industries
